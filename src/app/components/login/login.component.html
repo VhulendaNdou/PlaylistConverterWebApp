@@ -1,0 +1,39 @@
+<div class="flexbox" >
+    <div class="grid-container">
+        <div class="horzontalFlex">
+            <h1 class="text">Login</h1>
+            <h4 class="text">Steps to login:</h4>
+            <div class="buttons grid-x grid-padding-x" >
+                <div class="cell small-4">
+                    <button class="button hollow warning " (click)="setStep(1)">1</button>
+                </div>
+                <div class="cell small-4">
+                    <button class="button hollow warning " (click)="setStep(2)">2</button>
+                </div>
+                
+            </div>
+        </div>
+        
+        <div class="card grid-x grid-padding-x" *ngIf="step == 1">
+            <h3>Spotify Login</h3>
+            <div class="spotify">
+                
+                <button (click)="login('spotify')">
+                    <!--spotify logo-->
+                    <img id="spotify" src="./../assets/spotify_color.png" alt="spotify">
+                    Login with Spotify
+                </button>
+            </div>
+        </div>
+        <div class="card grid-x grid-padding-x" *ngIf="step == 2">
+            <h3>Youtube Login</h3>
+            <div class="youtube">
+                <img id="youtube" src="./../assets/youtube_Color.png" alt="youtube">
+                <button (click)="login('youtube')">
+                    <!--youtube logo-->
+                    Login with Youtube
+                </button>
+            </div>
+        </div>
+    </div>
+</div>

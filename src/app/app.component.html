@@ -1,0 +1,23 @@
+<div class="flexbox">
+    <header>  <!-- -->
+        <div >
+            <img  id="logo" src="./../assets/logo.ico" alt="logo">
+        </div>
+        <div class="grid-x grid-padding-x">
+            <h5 class="cell">The</h5>
+            <h4 class="cell">Converter</h4>
+        </div>
+        <!-- <button type="button" class="alert button" (click)="Logout()">Logout</button> -->
+    </header>
+</div>
+
+<app-spinner></app-spinner>
+
+<router-outlet id="output"></router-outlet>
+<footer class="flexbox">
+    <div id="alert" style="display: none;" class="callout alert grid-x grid-padding-x" >
+        <i class="fi-x-circle cell small-1"></i>
+        <p id="message" class="cell small-11"></p>
+    </div>
+</footer>
+

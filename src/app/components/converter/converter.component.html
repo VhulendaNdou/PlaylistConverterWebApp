@@ -1,0 +1,65 @@
+<div class="flexbox">
+  <form [formGroup]="form" (ngSubmit)="onSubmission()" class="grid-x grid-padding-x" *ngIf="convertPage()">
+    <div class="cell medium-8">
+        <label>
+        <input class="search" type="text" placeholder="Search for a Song" aria-describedby="exampleHelpTextNothing" formControlName="query" >
+        </label>
+    </div>
+    <div class="cell medium-3">
+        <button class="button hollow warning" type="submit">Search</button>
+    </div>
+  </form>
+</div>
+<div  class="reveal" id="searchResults" data-reveal>
+  <h1>Search Results</h1>
+  <p id="songname" class="lead"></p>
+  <button class="button success round" type="button" (click)="addSong(song!)">
+    <span aria-hidden="true"><i class="fi-add"></i></span>
+    Add Song to playlist
+  </button>
+  <button class="close-button" data-close aria-label="Close modal" type="button">
+    <span aria-hidden="true">&times;</span>
+  </button>
+</div>
+<h3 class="flexbox">Converted {{convertedTo}} playlist:</h3>
+<div class="flexbox">
+    <table >
+      <thead>
+        <tr>
+          <th>Song</th>
+          <th>Artist</th>
+          <th></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr *ngIf="!playlist">
+          <td>
+            No playlist
+          </td>
+          <td>blue</td>
+          <td><button class="button alert round" type="button" >
+            <span aria-hidden="true"><i class="fi-trash"></i></span>
+            Remove song
+          </button></td>
+        </tr>
+        <tr  *ngFor="let song of playlist!.songList">
+          <td>{{song.songName}}</td>
+          <td>{{song.artistName}}</td>
+          <td>
+            <button class="button alert round" type="button" (click)="removeSong(song)">
+              <span aria-hidden="true"><i class="fi-trash"></i></span>
+              Remove song
+            </button>
+          </td>
+        </tr>
+      </tbody>
+    </table>
+  
+</div>
+<div class="flexbox">
+  <button class="button hollow warning" id="convert" [routerLink]="['/home']">Convert another playlist</button>
+</div>
+
+
+
+

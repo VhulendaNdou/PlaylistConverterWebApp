@@ -1,0 +1,61 @@
+
+<div class="flex">
+<div class="grid-container grid-x grid-padding-x">
+
+
+  <div class="cell medium-7 flex">
+    <h1 class="heading cell">Welcome to The Conveter </h1>
+    <h5 class="heading cell">Where we bring versatility to your playlists</h5>
+  </div>
+
+  <form [formGroup]="form" (ngSubmit)="onSubmission()" #frm="ngForm" class=" cell medium-4">
+    <div class="grid-container" > 
+      <div class="grid-x grid-padding-x">
+          <div class="cell">
+            <label>Enter playlist url<br>
+              <input placeholder="URL" type="text" id="url" formControlName="url">
+            </label>
+            <span *ngIf="urlRequiredError() && frm.submitted " class="text-danger" >Please enter url</span><br *ngIf="urlRequiredError() && frm.submitted"><br/>
+          </div>
+        </div>
+        <div class="grid-x grid-padding-x">
+            <div class="cell medium-6">
+                <label >Convert from<br>
+                    <select formControlName="convertFrom">
+                        <option value="youtube">Youtube</option>
+                        <option value="spotify">Spotify</option>
+                    </select>
+                </label>
+            </div>
+            <div class="cell medium-6">
+                <label >Convert to<br>
+                    <select formControlName="convertTo" >
+                        <option value="youtube" >Youtube</option>
+                        <option value="spotify">Spotify</option>
+                    </select>
+                </label>
+            </div>
+            <span *ngIf="isPlatformsEqual && frm.submitted " >Please choose different platforms</span><br *ngIf="isPlatformsEqual && frm.submitted"><br/>
+        </div>
+        <!-- <div *ngIf="convertFromYoutube()" class="grid-x grid-padding-x" >
+          <div class="cell">
+            <label>Name of playlist<br>
+              <input placeholder="Playlist name" type="text" id="url" formControlName="name">
+            </label>
+            <span *ngIf="nameRequiredError() && frm.submitted " class="text-danger" >Please enter a playlist name</span><br *ngIf="nameRequiredError() && frm.submitted"><br/>
+          </div>
+        </div> -->
+        <div class="grid-x grid-padding-x flexbox">
+          <button class="button hollow warning" type="submit">Convert Playlist</button>
+        </div>
+  </div>  
+  </form> 
+</div>
+</div>
+<footer>
+  <div class="images">
+      <img id="spotify" src="./../assets/spotify_color.png" alt="spotify">
+      <img id="youtube" src="./../assets/youtube_Color.png" alt="youtube">
+  </div>
+</footer>
+
